@@ -1,0 +1,5 @@
+mercurial-reviewboard (0+hg1c76c945ed3b-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- David Cournapeau <cournape@gmail.com>  Mon, 31 May 2010 14:16:28 +0900

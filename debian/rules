@@ -1,0 +1,30 @@
+#!/usr/bin/make -f
+
+MODULE_DIR = usr/lib/$(shell pyversions -d)/site-packages/hgext/reviewboard/
+
+build:
+
+clean:
+	dh clean
+	find $(CURDIR) -type f -name '*\.py[co]' -delete
+
+install: build
+	dh install --until dh_prep
+	dh_installdirs $(MODULE_DIR)
+	cp -r *.py debian/mercurial-reviewboard/$(MODULE_DIR)/
+	dh install --after dh_install
+
+# Build architecture-independent files here.
+binary-indep: install
+	dh binary-indep
+
+binary-arch:
+
+binary: binary-indep binary-arch
+
+patch unpatch:
+	dh_quilt_$(@)
+
+.PHONY: build clean binary-indep binary-arch binary install patch unpatch
+
+# vim:ts=4 sw=4 noet

@@ -1,0 +1,14 @@
+Source: mercurial-reviewboard
+Section: vcs
+Priority: optional
+Maintainer: David Cournapeau <cournape@gmail.com>
+Build-Depends: debhelper (>= 7), python-support (>= 0.90)
+Standards-Version: 3.8.3
+Homepage: http://code.google.com/p/mercurial-reviewboard/
+
+Package: mercurial-reviewboard
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, mercurial (>= 1.4), python-simplejson (>= 2.0)
+Description: Reviewboard plugin for hg
+ This extension adds a new command 'postreview' to post changesets for
+ review to a reviewboard server.
